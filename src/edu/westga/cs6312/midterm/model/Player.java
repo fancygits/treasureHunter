@@ -27,8 +27,14 @@ public class Player {
 	 * Subtracts money units from the Player.
 	 * Used to open Treasure Chests
 	 * @param deduction	The amount of money to be deducted
+	 * 
+	 * Precondition: deduction > 0
+	 * Postcondition: Player's moneyRemaining is decreased
 	 */
 	public void deductMoney(int deduction) {
+		if (deduction < 0) {
+			deduction = 0;
+		}
 		this.moneyRemaining -= deduction;
 	}
 	
@@ -36,8 +42,14 @@ public class Player {
 	 * Adds money units to the Player.
 	 * Used to award from Treasure Chests
 	 * @param acceptance	The amount of money to be added
+	 * 
+	 * Precondition: acceptance > 0
+	 * Postcondition: Player's moneyRemaining is increased
 	 */
 	public void acceptMoney(int acceptance) {
+		if (acceptance < 0) {
+			acceptance = 0;
+		}
 		this.moneyRemaining += acceptance;
 	}
 	

@@ -18,7 +18,7 @@ class TestPlayerConstructor {
 	 * player with 100 money units remaining.
 	 */
 	@Test
-	void test0ParameterConstructorShouldConstructNewPlayerWith100MoneyUnits() {
+	public void test0ParameterConstructorShouldConstructNewPlayerWith100MoneyUnits() {
 		Player newPlayer = new Player();
 		assertEquals("Player with 100 money units remaining", newPlayer.toString());
 	}
