@@ -27,8 +27,14 @@ public abstract class TreasureChest {
 	/**
 	 * Removes money units from the TreasureChest
 	 * @param moneyToRemove	The amount of money to remove
+	 * 
+	 * Precondition:	moneyToRemove <= treasure
+	 * Postcondition:	money units removed from chest
 	 */
 	public void removeMoney(int moneyToRemove) {
+		if (moneyToRemove > this.treasure) {
+			throw new IllegalArgumentException("You can't remove more money than the chest contains");
+		}
 		this.treasure -= moneyToRemove;
 	}
 	
@@ -36,6 +42,7 @@ public abstract class TreasureChest {
 	 * Returns a String representation of the treasure chest
 	 * @return	A String sentence of the chest
 	 */
+	@Override
 	public String toString() {
 		return "a treasure chest with " + this.getMoneyRemaining() + " money units";
 	}
