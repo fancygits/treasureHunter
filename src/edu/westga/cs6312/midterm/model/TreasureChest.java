@@ -10,9 +10,15 @@ public abstract class TreasureChest {
 	
 	/**
 	 * Constructs a new TreasureChest
-	 * @param contents	The amount of money units in the chest
+	 * @param treasure	The amount of money units in the chest
+	 * 
+	 * Precondition: 	treasure >= 0
+	 * Postcondition:	A treasure chest is constructed
 	 */
 	public TreasureChest(int treasure) {
+		if (treasure < 0) {
+			treasure = 0;
+		}
 		this.treasure = treasure;
 	}
 	
@@ -44,7 +50,11 @@ public abstract class TreasureChest {
 	 */
 	@Override
 	public String toString() {
-		return "a treasure chest holding " + this.getMoneyRemaining() + " money units";
+		if (this.getMoneyRemaining() == 0) {
+			return "no treasure";
+		} else {
+			return "a treasure chest holding " + this.getMoneyRemaining() + " money units";
+		}
 	}
 	
 	/**

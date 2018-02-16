@@ -18,7 +18,7 @@ class TestSimpleTreasureConstructor {
 	 * TreasureChest with 75 money units
 	 */
 	@Test
-	void test0ParameterConstructorShouldReturnNewTreasureChestWith75MoneyUnits() {
+	public void test0ParameterConstructorShouldReturnNewTreasureChestWith75MoneyUnits() {
 		SimpleTreasure newChest = new SimpleTreasure();
 		assertEquals("a simple treasure chest holding 75 money units", newChest.toString());
 	}
