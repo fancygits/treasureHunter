@@ -11,7 +11,7 @@ public class SimpleTreasure extends TreasureChest {
 	}
 	
 	public String toString() {
-		return "simple treasure chest holding " + this.getMoneyRemaining() + " money units";
+		return "a simple treasure chest holding " + this.getMoneyRemaining() + " money units";
 	}
 	
 	/**

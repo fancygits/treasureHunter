@@ -44,7 +44,7 @@ public abstract class TreasureChest {
 	 */
 	@Override
 	public String toString() {
-		return "a treasure chest with " + this.getMoneyRemaining() + " money units";
+		return "a treasure chest holding " + this.getMoneyRemaining() + " money units";
 	}
 	
 	/**
