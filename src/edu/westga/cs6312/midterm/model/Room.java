@@ -65,6 +65,12 @@ public class Room {
 	 */
 	@Override
 	public String toString() {
-		return "Room at position " + this.roomID + "with " + this.treasureChest.toString();
+		String treasure = "";
+		if (this.getTreasure() == null) {
+			treasure = "no treasure";
+		} else {
+			treasure = this.getTreasure().toString();
+		}
+		return "Room at position " + this.roomID + " with " + treasure;
 	}
 }

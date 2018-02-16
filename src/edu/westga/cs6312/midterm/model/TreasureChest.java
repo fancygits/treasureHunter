@@ -53,7 +53,7 @@ public abstract class TreasureChest {
 		if (this.getMoneyRemaining() == 0) {
 			return "no treasure";
 		} else {
-			return "a treasure chest holding " + this.getMoneyRemaining() + " money units";
+			return "treasure chest holding " + this.getMoneyRemaining() + " money units";
 		}
 	}
 	

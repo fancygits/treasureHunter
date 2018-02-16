@@ -23,7 +23,7 @@ public class SimpleTreasure extends TreasureChest {
 		if (this.getMoneyRemaining() == 0) {
 			return "no treasure";
 		} else {
-			return "a simple treasure chest holding " + this.getMoneyRemaining() + " money units";
+			return "simple " + super.toString();
 		}
 	}
 	
