@@ -58,8 +58,12 @@ public class GameBoard {
 	 */
 	@Override
 	public String toString() {
-		return "a game board with " + this.rooms.length 
-				+ " rooms and a player currently in room " 
-				+ this.currentRoomID;
+		String description = "";
+		for (Room current: this.rooms) {
+			description += current.toString() + "\n";
+		}
+		description += "\n" + this.getPlayer().toString();
+		description += "\nand is located in " + this.getCurrentRoom().toString();
+		return description;
 	}
 }
