@@ -51,6 +51,7 @@ public class TreasureTUI {
 		System.out.println("2 - Describe the player");
 		System.out.println("3 - Describe the game board");
 		System.out.println("4 - Move");
+		System.out.println("5 - Open Treasure");
 		System.out.println("9 - Quit");
 	}
 
@@ -64,6 +65,7 @@ public class TreasureTUI {
 			case 2: this.describePlayer(); 		break;
 			case 3: this.describeGameBoard(); 	break;
 			case 4: this.move(); 				break;
+			case 5: this.checkTreasure();		break;
 			case 9: this.quitGame(); 			break;
 			default:System.out.println("\nThat's not a valid option. Please try again.");
 		}
@@ -124,5 +126,35 @@ public class TreasureTUI {
 			return;
 		}
 		System.out.println("The player is now in " + this.gameBoard.getCurrentRoom().toString());
+	}
+	
+	/**
+	 * Opens the treasure chest in the room and delivers payment to the player
+	 * 
+	 * Precondition:	Treasure chest must exist
+	 * 					Player must have enough money (50) to open the chest
+	 * Postcondition: 	Money is added to the player and removed from the chest
+	 */
+	private void checkTreasure() {
+		if (this.gameBoard.getCurrentRoom().getTreasure() == null) {
+			System.out.println("Sorry. There is no treasure in this room.");
+			return;
+		} else if (this.gameBoard.getPlayer().getMoneyRemaining() < 50) {
+			System.out.println("Not enough money to open the treasure");
+		} else {
+			this.gameBoard.getPlayer().deductMoney(50);
+			this.openTreasure();
+		}
+	}
+	
+	private void openTreasure() {
+		int payment = this.gameBoard.getCurrentRoom().getTreasure().deliverPayment();
+		this.gameBoard.getPlayer().acceptMoney(payment);
+		System.out.println("The treasure chest now has " 
+				+ this.gameBoard.getCurrentRoom().getTreasure().getMoneyRemaining()
+				+ " unit(s) remaining");
+		System.out.println("The player now has "
+				+ this.gameBoard.getPlayer().getMoneyRemaining()
+				+ " unit(s) remaining");
 	}
 }

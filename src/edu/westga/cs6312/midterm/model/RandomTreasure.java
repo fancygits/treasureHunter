@@ -34,6 +34,8 @@ public class RandomTreasure extends TreasureChest {
 	 * @return	The amount of money removed from the chest
 	 */
 	public int deliverPayment() {
-		return this.diceRoll.nextInt(this.getMoneyRemaining()) + 1;
+		int payment = this.diceRoll.nextInt(this.getMoneyRemaining()) + 1;
+		this.removeMoney(payment);
+		return payment;
 	}
 }
