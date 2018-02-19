@@ -14,8 +14,8 @@ public class Room {
 	
 	/**
 	 * Constructs a new Room object
-	 * @param roomID	The int ID of the room
-	 * @param diceRoll	A Random number
+	 * @param roomID			The int ID of the room
+	 * @param treasureChance	A Random number
 	 */
 	public Room(int roomID, Random treasureChance) {
 		this.roomID = roomID;
@@ -40,7 +40,8 @@ public class Room {
 	 * @return	A treasure chest
 	 */
 	private TreasureChest createTreasure() {
-		return new SimpleTreasure();
+		TreasureChest newChest = new SimpleTreasure();
+		return newChest;
 	}
 	
 	/**

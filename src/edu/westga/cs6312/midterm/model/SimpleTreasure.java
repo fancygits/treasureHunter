@@ -20,11 +20,7 @@ public class SimpleTreasure extends TreasureChest {
 	 */
 	@Override
 	public String toString() {
-		if (this.getMoneyRemaining() == 0) {
-			return "no treasure";
-		} else {
-			return "simple " + super.toString();
-		}
+		return "simple " + super.toString();
 	}
 	
 	/**

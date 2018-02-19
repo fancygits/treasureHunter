@@ -50,11 +50,7 @@ public abstract class TreasureChest {
 	 */
 	@Override
 	public String toString() {
-		if (this.getMoneyRemaining() == 0) {
-			return "no treasure";
-		} else {
-			return "treasure chest holding " + this.getMoneyRemaining() + " money units";
-		}
+		return "treasure chest holding " + this.getMoneyRemaining() + " money units";
 	}
 	
 	/**

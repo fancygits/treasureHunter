@@ -1,6 +1,6 @@
 package edu.westga.cs6312.midterm.testing.room;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 

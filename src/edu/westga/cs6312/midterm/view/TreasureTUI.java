@@ -13,11 +13,18 @@ public class TreasureTUI {
 	private GameBoard gameBoard;
 	private Scanner input;
 	
+	/**
+	 * Constructs a new TreasureTUI object
+	 * @param gameBoard	A GameBoard object
+	 */
 	public TreasureTUI(GameBoard gameBoard) {
 		this.gameBoard = gameBoard;
 		this.input = new Scanner(System.in);
 	}
 	
+	/**
+	 * Starts the TreasureTUI application
+	 */
 	public void run() {
 		System.out.println("Welcome to the Treasure Hunter Application");
 		this.menu();
@@ -34,6 +41,10 @@ public class TreasureTUI {
 		System.out.println("9 - Quit");
 	}
 	
+	/**
+	 * Helper method to run methods based on userInt
+	 * @param choice	An int from getUserInt()
+	 */
 	private void menuChoices(int choice) {
 		switch (choice) {
 			case 1: this.describeRoom();
@@ -50,7 +61,7 @@ public class TreasureTUI {
 	}
 	
 	/**
-	 * Helper method to run a method based on the menu choice
+	 * Helper method display the menuOptions and get the menuChoice
 	 */
 	private void menu() {
 		int choice = 0;
@@ -61,19 +72,33 @@ public class TreasureTUI {
 		} while (choice != 9);
 	}
 	
+	/**
+	 * Helper method to display a message and convert the input to an int
+	 * @param message	The message to display to the user
+	 * @return			An int parsed from the String input
+	 */
 	private int getUserInt(String message) {
 		System.out.print(message);
 		return Integer.parseInt(this.input.nextLine());
 	}
 	
+	/**
+	 * Helper method to describe the current room
+	 */
 	private void describeRoom() {
 		System.out.println(this.gameBoard.getCurrentRoom().toString());
 	}
 	
+	/**
+	 * Helper method to describe the player and remaining money
+	 */
 	private void describePlayer() {
 		System.out.println(this.gameBoard.getPlayer().toString());
 	}
 	
+	/**
+	 * Helper method to describe the game board
+	 */
 	private void describeGameBoard() {
 		System.out.println(this.gameBoard.toString());
 	}
