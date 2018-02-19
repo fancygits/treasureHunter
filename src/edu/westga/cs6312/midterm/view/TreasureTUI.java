@@ -31,36 +31,6 @@ public class TreasureTUI {
 	}
 	
 	/**
-	 * Helper method with the menu choices
-	 */
-	private void menuOptions() {
-		System.out.println();
-		System.out.println("1 - Describe the room");
-		System.out.println("2 - Describe the player");
-		System.out.println("3 - Describe the game board");
-		System.out.println("9 - Quit");
-	}
-	
-	/**
-	 * Helper method to run methods based on userInt
-	 * @param choice	An int from getUserInt()
-	 */
-	private void menuChoices(int choice) {
-		switch (choice) {
-			case 1: this.describeRoom();
-					break;
-			case 2: this.describePlayer();
-					break;
-			case 3: this.describeGameBoard();
-					break;
-			case 9: System.out.println("\nThanks for looking for treasure with us. Goodbye!");
-					System.exit(0); 
-					break;
-			default:System.out.println("\nThat's not a valid option. Please try again.");
-		}
-	}
-	
-	/**
 	 * Helper method display the menuOptions and get the menuChoice
 	 */
 	private void menu() {
@@ -72,6 +42,33 @@ public class TreasureTUI {
 		} while (choice != 9);
 	}
 	
+	/**
+	 * Helper method with the menu choices
+	 */
+	private void menuOptions() {
+		System.out.println();
+		System.out.println("1 - Describe the room");
+		System.out.println("2 - Describe the player");
+		System.out.println("3 - Describe the game board");
+		System.out.println("4 - Move");
+		System.out.println("9 - Quit");
+	}
+
+	/**
+	 * Helper method to run methods based on userInt
+	 * @param choice	An int from getUserInt()
+	 */
+	private void menuChoices(int choice) {
+		switch (choice) {
+			case 1: this.describeRoom(); 		break;
+			case 2: this.describePlayer(); 		break;
+			case 3: this.describeGameBoard(); 	break;
+			case 4: this.move(); 				break;
+			case 9: this.quitGame(); 			break;
+			default:System.out.println("\nThat's not a valid option. Please try again.");
+		}
+	}
+
 	/**
 	 * Helper method to display a message and convert the input to an int
 	 * @param message	The message to display to the user
@@ -101,5 +98,31 @@ public class TreasureTUI {
 	 */
 	private void describeGameBoard() {
 		System.out.println(this.gameBoard.toString());
+	}
+	
+	/**
+	 * Quits the game
+	 */
+	private void quitGame() {
+		System.out.println("\nThanks for looking for treasure with us. Goodbye!");
+		System.exit(0);
+	}
+	
+	/**
+	 * Moves the player left or right
+	 */
+	private void move() {
+		System.out.println("1 - Left");
+		System.out.println("2 - Right");
+		int choice = this.getUserInt("Please enter the direction: ");
+		if (choice == 1) {
+			this.gameBoard.moveLeft();
+		} else if (choice == 2) {
+			this.gameBoard.moveRight();
+		} else {
+			System.out.println("That's not a valid direction");
+			return;
+		}
+		System.out.println("The player is now in " + this.gameBoard.getCurrentRoom().toString());
 	}
 }
