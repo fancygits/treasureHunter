@@ -129,11 +129,11 @@ public class TreasureTUI {
 	}
 	
 	/**
-	 * Opens the treasure chest in the room and delivers payment to the player
+	 * Checks if the room contains a treasure chest and player has enough money
 	 * 
 	 * Precondition:	Treasure chest must exist
 	 * 					Player must have enough money (50) to open the chest
-	 * Postcondition: 	Money is added to the player and removed from the chest
+	 * Postcondition: 	Treasure chest is opened
 	 */
 	private void checkTreasure() {
 		if (this.gameBoard.getCurrentRoom().getTreasure() == null) {
@@ -147,6 +147,9 @@ public class TreasureTUI {
 		}
 	}
 	
+	/**
+	 * Opens the treasure chest in the room and delivers payment to the player
+	 */
 	private void openTreasure() {
 		int payment = this.gameBoard.getCurrentRoom().getTreasure().deliverPayment();
 		this.gameBoard.getPlayer().acceptMoney(payment);
