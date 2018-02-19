@@ -66,4 +66,26 @@ public class GameBoard {
 		description += "\nand is located in " + this.getCurrentRoom().toString();
 		return description;
 	}
+	
+	/**
+	 * Moves the player to the next room on the right
+	 */
+	public void moveRight() {
+		if (this.currentRoomID == (this.rooms.length - 1)) {
+			this.currentRoomID = 0;
+		} else {
+			this.currentRoomID += 1;
+		}
+	}
+	
+	/**
+	 * Moves the player to the next room on the left
+	 */
+	public void moveLeft() {
+		if (this.currentRoomID == 0) {
+			this.currentRoomID = (this.rooms.length - 1);
+		} else {
+			this.currentRoomID -= 1;
+		}
+	}
 }

@@ -10,16 +10,16 @@ import java.util.Random;
 public class Room {
 	private TreasureChest treasureChest;
 	private int roomID;
-	private Random treasureChance;
+	private Random diceRoll;
 	
 	/**
 	 * Constructs a new Room object
 	 * @param roomID			The int ID of the room
-	 * @param treasureChance	A Random number
+	 * @param diceRoll	A Random number
 	 */
-	public Room(int roomID, Random treasureChance) {
+	public Room(int roomID, Random diceRoll) {
 		this.roomID = roomID;
-		this.treasureChance = treasureChance;
+		this.diceRoll = diceRoll;
 		this.setupRoom();
 	}
 	
@@ -28,20 +28,24 @@ public class Room {
 	 * chest if the diceRoll is greater than 0.5
 	 */
 	private void setupRoom() {
-		if (this.treasureChance.nextDouble() >= 0.5) {
+		if (this.diceRoll.nextBoolean()) {
 			this.treasureChest = this.createTreasure();
-		} else {
-			this.treasureChest = null;
 		}
 	}
 	
 	/**
 	 * Helper method to create a new treasure chest object
+	 * There is a 50% chance of it being a SimpleTreasure
 	 * @return	A treasure chest
 	 */
 	private TreasureChest createTreasure() {
-		TreasureChest newChest = new SimpleTreasure();
-		return newChest;
+		TreasureChest chest;
+		if (this.diceRoll.nextBoolean()) {
+			chest = new RandomTreasure(this.diceRoll);
+		} else {
+			chest = new SimpleTreasure();
+		}
+		return chest;
 	}
 	
 	/**
