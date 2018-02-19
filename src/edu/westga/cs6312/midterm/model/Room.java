@@ -14,7 +14,7 @@ public class Room {
 	
 	/**
 	 * Constructs a new Room object
-	 * @param roomID			The int ID of the room
+	 * @param roomID	The int ID of the room
 	 * @param diceRoll	A Random number
 	 */
 	public Room(int roomID, Random diceRoll) {
